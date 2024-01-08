@@ -45,6 +45,6 @@ def cut_rod(p, n):
     return q
 
 
-t = cut_rod([0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30], 10)
+t = cut_rod([0] * 40, 40)
 t
 # %%
