@@ -32,8 +32,19 @@ fib_20
 # %%
 # cutting rod dyanmic programming problems
 # the rod can cut up to length `n` to 2^n-1 differnet ways
+# p = price, n = length, q = max price
 
-fib = [0] * (4)
-fib
 
+def cut_rod(p, n):
+    if n == 0:
+        return 0
+    q = - float('inf')  # negative infinity
+
+    for i in range(1, n+1):
+        q = max(q, p[i] + cut_rod(p, n-i))
+    return q
+
+
+t = cut_rod([0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30], 10)
+t
 # %%
