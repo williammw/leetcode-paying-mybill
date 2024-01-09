@@ -46,5 +46,24 @@ def cut_rod(p, n):
 
 
 t = cut_rod([0] * 40, 40)
-t
+t  # no good, take too long to run,
+# %%
+
+
+def cut_rod_dp(prices, n):
+    revenue = [0] * (n+1)
+    for j in range(1, n+1):
+        max_val = - float('inf')
+        for i in range(1, j+1):
+            max_val = max(max_val, prices[i] + revenue[j-i])
+        revenue[j] = max_val
+    return revenue[n]
+
+
+# example to use it
+prices = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30]  # same as book
+max_rev = cut_rod_dp(prices, 4)
+
+print(max_rev)
+
 # %%
