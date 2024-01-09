@@ -60,10 +60,32 @@ def cut_rod_dp(prices, n):
     return revenue[n]
 
 
-# example to use it
+# example to use it p[1] means length 1 price is 1
+
 prices = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30]  # same as book
-max_rev = cut_rod_dp(prices, 4)
+max_rev = cut_rod_dp(prices, 10)
 
 print(max_rev)
 
+# %%
+# what is larger input, simple recursion or dynamic programming
+
+
+def cut_rod_dp_m(prices, n):
+    revenue = [-1] * (n+1)
+    #
+    revenue[0] = 0
+    for j in range(1, n+1):
+        max_val = -1
+        for i in range(1, min(j, len(prices))):
+            max_val = max(max_val, prices[i] + revenue[j-i])
+        revenue[j] = max_val
+    return revenue[n]
+
+
+# example to use it p[1] means length 1 price is 1
+
+prices = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30]  # same as book
+max_rev = cut_rod_dp_m(prices, 100)
+max_rev
 # %%
