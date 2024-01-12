@@ -118,9 +118,8 @@ check_validity('[]{}()')
 
 
 # %%
-#reserve an string
+# reserve an string
 def reverse(s):
     words = [word for word in s.split(' ') if word]
     return ' '.join(words[::-1])
 # %%
-"
