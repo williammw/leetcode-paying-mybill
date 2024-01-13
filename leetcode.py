@@ -122,4 +122,12 @@ check_validity('[]{}()')
 def reverse(s):
     words = [word for word in s.split(' ') if word]
     return ' '.join(words[::-1])
+
+
+# %%
+s = list('Hello World ! 123')
+a = ''.join(word for word in s if word.isalnum())
+a == a[::-1]
+# O(n), O(n) which n is the length of s
+
 # %%
