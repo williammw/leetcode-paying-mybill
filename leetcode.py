@@ -264,15 +264,59 @@ def lengthOfLongestSubstring(s):
     start = 0
     seen = set()
     for end in range(len(s)):
-        print(seen)
         while s[end] in seen:
-            # print(seen)
+            print('now in', s[end], ' going to remove', s[start], seen)
             seen.remove(s[start])
+            print('removed', s[start], 'now seen = ', seen)
             start += 1
+            print('new start',  start)
+        print('going to add', s[end])
         seen.add(s[end])
+        print('now seen = ', seen)
+        print('max_length', max_length, 'end - start + 1', end - start + 1)
         max_length = max(max_length, end - start + 1)
     return max_length
 
 
-lengthOfLongestSubstring('abcabcbb')
+lengthOfLongestSubstring('abcdfjabc')
+# %%
+s = "hello"
+reversed = s[::-1]
+s[1:3]
+
+# %%
+s = set()
+s.add('a')
+s.add('b')
+s.add('c')
+print(s)
+s.remove('c')
+print(s)
+# %%
+
+
+def max_sub_array_of_size_k(k, nums):
+    max_sum = float('-inf')
+    window_sum = 0
+    window_start = 0
+
+    for window_end in range(len(nums)):
+        window_sum += nums[window_end]  # Add the next element to the window
+
+        # Slide the window, we don't need to slide if we've not hit the required window size of 'k'
+        if window_end >= k - 1:
+            # Update the maximum sum if necessary
+            max_sum = max(max_sum, window_sum)
+            # Subtract the element going out of the window
+            window_sum -= nums[window_start]
+            window_start += 1  # Slide the window ahead
+
+    return max_sum
+
+
+# Example usage
+nums = [1, 4, 2, 10, 23, 3, 1, 0, 20]
+k = 5
+print(max_sub_array_of_size_k(k, nums))  # Output: 39
+
 # %%
