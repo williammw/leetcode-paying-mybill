@@ -320,5 +320,24 @@ k = 5
 print(max_sub_array_of_size_k(k, nums))  # Output: 39
 
 # %%
+arr = list(range(10))
+q = len(arr)
+arr
 
+# %%
+def missingNumber(nums):
+    n = len(nums)
+    total_sum = n * (n + 1) // 2
+    actual_sum = sum(nums)
+    return total_sum - actual_sum
+
+nums = [3, 0, 1]
+missing_number = missingNumber(nums)
+print(missing_number)
+# %%
+arr = [1,4,0]
+len(arr)
+# %%
+a = [1,2,3,4,5,6]
+sum(a)
 # %%

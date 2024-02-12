@@ -88,3 +88,13 @@ class Solution(object):
                 seen.add(num)
         if len(seen) == 0:
             return False
+        
+  def missingNumber(self, nums):
+      """
+        :type nums: List[int]
+        :rtype: int
+        """
+      n = len(nums)
+      total_sum = n * (n + 1) // 2
+      actual_sum = sum(nums)
+      return total_sum - actual_sum
