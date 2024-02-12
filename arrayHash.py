@@ -73,5 +73,18 @@ class Solution(object):
     # Return the list of triplets that sum to zero.
     return result
 
-
-
+  def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        start = None
+        
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return True
+            else:
+                seen.add(num)
+        if len(seen) == 0:
+            return False
