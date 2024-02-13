@@ -131,3 +131,31 @@ class Solution(object):
             elif a == 0 and b == 0 and c >= 1:
                 ans.append(word)
       return ans
+  
+  def sortPeople(self, names, heights):
+    """
+    :type names: List[str]
+    :type heights: List[int]
+    :rtype: List[str]
+    """
+
+    paired = zip(names, heights)
+    sorted_pairs = sorted(paired, key=lambda x: x[1], reverse=True)
+
+    sorted_names, sorted_heights = zip(*sorted_pairs)
+
+    sorted_names = list(sorted_names)
+    return sorted_names
+
+  def LongestWord(sen):
+    # Removing punctuation from the input string
+    sen = ''.join(char for char in sen if char.isalnum() or char.isspace())
+
+    # Splitting the string into words
+    words = sen.split()
+
+    # Finding the longest word
+    longest_word = max(words, key=len)
+
+    return longest_word
+

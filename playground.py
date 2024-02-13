@@ -362,3 +362,30 @@ def fairCandySwap(A, B):
 set_B = set([1,2,3,4,5])
 set_B
 # %%
+
+names = ["Mary", "John", "Emma"]
+heights = [421, 165, 170]
+
+# Zip names and heights together and sort by height
+paired = zip(names, heights)
+a = list(paired)
+# sorted_pairs = sorted(paired, key=lambda x: x[1], reverse=True)
+
+print(a)
+
+# %%
+sen = 'I fuck you mother last night, and she eat all my cum, lun dui Choi Yuk Kei you are pokGuyHamKaChan!!!!'
+
+sen = ''.join(char for char in sen if char.isalnum() or char.isspace() )
+print(sen) 
+
+words = sen.split()
+
+ans =  max(words, key = len)
+
+ans
+
+# %%
+
+
+# %%
