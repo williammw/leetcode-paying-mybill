@@ -98,3 +98,36 @@ class Solution(object):
       total_sum = n * (n + 1) // 2
       actual_sum = sum(nums)
       return total_sum - actual_sum
+
+  # 500. Keyboard Row
+  def findWords(self, words):
+      """
+        :type words: List[str]
+        :rtype: List[str]
+        """
+      first = 'qwertyuiop'
+      second = 'asdfghjkl'
+      third = 'zxcvbnm'
+
+      ans = list()
+
+      for word in words:
+            a = 0
+            b = 0
+            c = 0
+            for char in list(word.lower()):
+                print(char)
+                if char in first:
+                    a += 1
+                elif char in second:
+                    b += 1
+                elif char in third:
+                    c += 1
+            print(a, b, c)
+            if a >= 1 and b == 0 and c == 0:
+                ans.append(word)
+            elif a == 0 and b >= 1 and c == 0:
+                ans.append(word)
+            elif a == 0 and b == 0 and c >= 1:
+                ans.append(word)
+      return ans

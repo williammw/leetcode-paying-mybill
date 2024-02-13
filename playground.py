@@ -1,8 +1,7 @@
 
 
 '''
-record of my leetcode practice
-
+prepared
 '''
 
 # %%
@@ -340,4 +339,25 @@ len(arr)
 # %%
 a = [1,2,3,4,5,6]
 sum(a)
+# %%
+s = "Hello, World!"
+
+list(s)
+# %%
+
+a = [1,2,3]
+sum_result = sum(a)
+print(sum_result)
+# %%
+def fairCandySwap(A, B):
+    sum_A, sum_B = sum(A), sum(B)
+    set_B = set(B)
+    for x in A:
+        if x + (sum_B - sum_A) // 2 in set_B:
+            return [x, x + (sum_B - sum_A) // 2]
+        
+# %%
+
+set_B = set([1,2,3,4,5])
+set_B
 # %%
