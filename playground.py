@@ -389,3 +389,49 @@ ans
 
 
 # %%
+import random
+arr = [random.randint(0, 100) for _ in range(10)] 
+mid = len(arr) // 2 
+L = arr[::mid] 
+R = arr[mid:] 
+
+i = j = k = 0
+
+while i < len(L) and j < len(R):
+  if L[i] < R[j]:
+    arr[k] = L[i]
+    i += 1
+  else:
+    arr[k] = R[j]
+    j += 1
+  k += 1
+while i < len(L):
+  arr[k] = L[i]
+  i += 1
+  j += 1
+while j < len(R):
+  arr[k] = R[r]
+  i += 1
+  j += 1
+
+
+
+
+
+# %%
+
+
+def merge(self, nums1, m, nums2, n):
+        for j in range(n):
+            nums1[m+j] = nums2[j]
+        nums1.sort()
+
+# %%
+for u in range(9):
+   print(u)
+# %%
+from functools import reduce
+# Sum all numbers in a list
+numbers = [1, 2, 3, 4, 5]
+total = reduce(lambda x, y: x + y, numbers)
+print(total)
