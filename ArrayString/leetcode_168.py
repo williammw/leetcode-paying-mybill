@@ -13,3 +13,17 @@ class Solution(object):
             columnNumber //= 26
             # print(columnNumber)
         return result
+
+
+# %% 
+print(4 % 26)
+print(111//26)
+
+# %%
+result =""
+
+for i in range(1, 27):
+    result +=  ">" +  result + ","
+
+print(result)
+# %%
