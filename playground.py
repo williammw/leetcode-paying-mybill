@@ -428,7 +428,7 @@ def merge(self, nums1, m, nums2, n):
 
 # %%
 for u in range(9):
-   print(u)
+  print(u)
 # %%
 from functools import reduce
 # Sum all numbers in a list
@@ -441,8 +441,42 @@ print(total)
 def generate(numRows):
   ans =  []
   for i in range(numRows):
+    print('i', i)
     ans.append([1] * (i + 1))
     for j in range(1, i):
+      print('j', i)
       ans[i][j] = ans[i - 1][j - 1] + ans[i - 1][j]
   return ans
     
+
+generate(5)
+# %%
+def t():
+  for i in range(1, 2):
+    print(i)
+t()
+# %%
+strs = '美國聯合航空再有波音客機飛行期間發生事故，外部面板飛脫，已安全緊急降落'
+print(''.join(char for char in strs if char.isalnum()))
+
+# %%
+s = 'abcdefghijklmnopqrstuvwxyz'
+def find_duplicate(s):
+  duplicate_chars = []
+  for i in range(len(s)):
+    if s[i] in s[i+1:] and s[i] not in duplicate_chars:
+      duplicate_chars.append(s[i])
+  return duplicate_chars
+
+duplicate_chars = find_duplicate(s)
+print(duplicate_chars)
+# %%
+def is_permutation(str1, str2):
+  return sorted(str1) == sorted(str2)
+
+str1 = "abc"
+str2 = "bca"
+if is_permutation(str1, str2):
+  print("One string is a permutation of the other")
+else:
+  print("One string is not a permutation of the other")
