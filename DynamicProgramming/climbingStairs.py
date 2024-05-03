@@ -1,5 +1,8 @@
+
+
 # %%
 
+import numpy as np
 def climgstair(n):
   memo = {}
   def dp(n):
@@ -91,4 +94,10 @@ def deleteAndEarn(self, nums):
 # %%
 li = [1,2,3,4,5]
 max(li)
+# %%
+matrix = np.random.rand(4, 2)
+print(matrix)
+# %%
+matrix2 = np.zeros((4, 2))
+print(matrix2)
 # %%
