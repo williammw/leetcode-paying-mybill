@@ -4,12 +4,29 @@ import torch.nn as nn
 import torch.optim as optim
 
 class SimpleNeuralNet(nn.Module):
+  """
+  A simple neural network model with two hidden layers and one output layer.
+
+  Args:
+    None
+
+  Attributes:
+    hidden1 (nn.Linear): The first hidden layer with input size 3 and output size 4.
+    hidden2 (nn.Linear): The second hidden layer with input size 4 and output size 4.
+    output (nn.Linear): The output layer with input size 4 and output size 1.
+    relu (nn.ReLU): The activation function ReLU.
+
+  Methods:
+    forward(x): Performs a forward pass through the network.
+
+  """
+
   def __init__(self):
     # Call the parent class constructor
     super(SimpleNeuralNet, self).__init__()
     # Hidden layer 1 (3,4) 3 means input size and 4 means output size
     self.hidden1 = nn.Linear(3, 4)
-    # Hidden layer 2 
+    # Hidden layer 2
     self.hidden2 = nn.Linear(4, 4)
     # Output layer
     self.output = nn.Linear(4, 1)
@@ -17,12 +34,22 @@ class SimpleNeuralNet(nn.Module):
     self.relu = nn.ReLU()
 
   def forward(self, x):
-    # Forward pass through the network 
-    # self.rele is the activation function 
+    """
+    Performs a forward pass through the network.
+
+    Args:
+      x (torch.Tensor): The input tensor.
+
+    Returns:
+      torch.Tensor: The output tensor.
+
+    """
+    # Forward pass through the network
+    # self.relu is the activation function
     x = self.relu(self.hidden1(x))
     x = self.relu(self.hidden2(x))
 
-    x = self.output(x) 
+    x = self.output(x)
 
     return x
   
