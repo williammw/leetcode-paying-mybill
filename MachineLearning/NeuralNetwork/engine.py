@@ -46,6 +46,7 @@ class Value:
   def __init__(self, data, _children=(), _op='', label=''):
     self.data = data
     self.grad = 0
+    self._backward = lambda: None
     self._prev = set(_children)
     self._op = _op
     self.label = label
@@ -56,16 +57,29 @@ class Value:
   
   def __add__(self, other):
     out = Value(self.data + other.data, (self, other), '+')
+    def _backward():
+      self.grad += 1.0 * out.grad
+      other.grad += 1.0 * out.grad
+    out._backward = _backward
+
     return out
   
   def __mul__(self, other):
     out = Value(self.data * other.data, (self, other), '*')
+    def _backward():
+      self.grad += other.data * out.grad
+      other.grad += self.data * out.grad
+    out._backward = _backward
     return out
   
-  def exp(self):
+  def tanh(self):
     x = self.data
     t =(math.exp(2*x) - 1)/(math.exp(2*x) + 1)
     out = Value(t, (self,), 'tanh')
+
+    def _backward():
+      self.grad += (1 - t**2) * out.grad
+    out._backward = _backward
     return out
   
   
@@ -194,7 +208,7 @@ x1w1 = x1 * w1; x1w1.label = 'x1w1'
 x2w2 = x2 * w2; x2w2.label = 'x2w2'
 x1w1x2w2 = x1w1 + x2w2; x1w1x2w2.label = 'x1w1 + x2w2'
 n = x1w1x2w2 + b; n.label = 'n'
-o =n.exp(); o.label = 'o'
+o =n.tanh(); o.label = 'o'
 
 
 # %%
@@ -214,3 +228,10 @@ draw_dot(o)
 # do/dn = 1 - o**2
 1 - o.data**2
 # %%
+
+# o.grad = 1.0
+
+draw_dot(o)
+
+# %%
+
