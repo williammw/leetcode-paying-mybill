@@ -1,4 +1,4 @@
-Key Observations from the Results:
+Key Observations from the Results (NN2.py):
 - Decreasing Training Loss: The training loss consistently decreases, nearing zero by the end of 500 epochs. This suggests that the model is effectively learning to fit the training data, achieving a high degree of accuracy in terms of how well it can predict the training targets.
 - Increasing Validation Loss: Despite the training loss decreasing, the validation loss starts to increase after some initial epochs. This pattern is a strong indication of overfitting. Overfitting occurs when a model learns the details and noise in the training data to an extent that it negatively impacts the performance of the model on new data, i.e., the model is too closely fit to the training data and not generalizing well to unseen data.
 
